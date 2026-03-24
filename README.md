@@ -1,75 +1,152 @@
 # Student Management System
 
-A full-stack **Student Management Dashboard** built with **FastAPI** and **JavaScript**.
+A full-stack **Student Management Dashboard** built using **FastAPI and JavaScript**.
+This application allows administrators to manage student records with features like authentication, CRUD operations, search, sorting, and pagination.
 
-This application allows users to manage student records using a REST API and an interactive dashboard.
+---
 
-## Features
+## 🚀 Features
 
-* JWT Authentication
-* Add Student
-* Edit Student
-* Delete Student
-* View Students
-* Dashboard statistics (Total Students & Average Age)
+* 🔐 JWT Authentication (Login / Logout)
+* ➕ Add Students
+* ✏️ Edit Student Details
+* ❌ Delete Students
+* 🔎 Live Search
+* 🔃 Sorting
+* 📄 Pagination
+* 📊 Dashboard Statistics (Total Students & Average Age)
+* 🔔 Toast Notifications
+* ⏳ Loading Spinner
 
-## Tech Stack
+---
 
-### Backend
+## 🛠 Tech Stack
 
-* Python
-* FastAPI
-* Pydantic
-* JWT Authentication
-
-### Frontend
+Frontend
 
 * HTML
 * CSS
 * JavaScript
 * Bootstrap
 
-## Project Structure
+Backend
 
+* FastAPI
+* Python
+* SQLAlchemy
+
+Database
+
+* SQLite
+
+Authentication
+
+* JWT (JSON Web Tokens)
+
+---
+
+## 📸 Screenshots
+
+### Login
+
+![Login Screenshot](Screenshots/Login_page.png)
+
+
+### Dashboard
+
+![Dashboard Screenshot](Screenshots/dashboard.png)
+
+### Add Student
+
+![Add Student](Screenshots/addStudent.png)
+
+### Edit Student
+
+![Edit Student](Screenshots/EditStudent.png)
+
+### Search Student
+
+![Searching Screenshot](Screenshots/search.png)
+
+### Sort Student 
+
+![Sorting Screenshot](Screenshots/sorting.png)
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/yourusername/student-management-system.git
+cd student-management-system
 ```
-student-management-system
-│
-├── backend
-│   ├── main.py
-│   ├── routers
-│   ├── models
-│   └── requirements.txt
-│
-├── frontend
-│   ├── index.html
-│   ├── login.html
-│   ├── script.js
-│   ├── api_helper.js
-│   └── style.css
-│
-└── README.md
-```
 
-## Running the Project
+### 2️⃣ Setup Backend
 
-### Start Backend
-
-```
+```bash
 cd backend
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn main:app --reload
 ```
 
-### Start Frontend
+Run server:
 
-Open `index.html` using Live Server.
+```bash
+uvicorn app.main:app --reload
+```
 
-## API Endpoints
+Backend runs at:
 
-| Method | Endpoint       | Description       |
-| ------ | -------------- | ----------------- |
-| POST   | /login         | Authenticate user |
-| GET    | /students      | Retrieve students |
-| POST   | /students      | Add student       |
-| PUT    | /students/{id} | Update student    |
-| DELETE | /students/{id} | Delete student    |
+```
+http://127.0.0.1:8000
+```
+
+Swagger Docs:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### 3️⃣ Run Frontend
+
+Open:
+
+```
+frontend/index.html
+```
+
+or run using Live Server in VS Code.
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint       | Description    |
+| ------ | -------------- | -------------- |
+| POST   | /login         | User login     |
+| GET    | /students      | Get students   |
+| POST   | /students      | Add student    |
+| PUT    | /students/{id} | Update student |
+| DELETE | /students/{id} | Delete student |
+
+---
+
+## 📌 Future Improvements
+
+* Deploy backend to cloud
+* Deploy frontend
+* Add role-based authentication
+* Export students to CSV
+
+---
+
+## 👨‍💻 Author
+
+Dharanidhar Kotha
+GitHub: https://github.com/yourusername
+
