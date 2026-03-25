@@ -1,10 +1,10 @@
 
 # main.py
 from fastapi import FastAPI
-from app.routers import students
-from app.database import engine
-from app.models import Base
-from app.routers import auth
+from backend.app.routers import students
+from backend.app.database import engine
+from backend.app.models import Base
+from backend.app.routers import auth
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
