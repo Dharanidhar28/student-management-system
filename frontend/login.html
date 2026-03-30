@@ -42,7 +42,6 @@ Login
 <script>
 
 async function login(){
-try {
 
 const username = document.getElementById("username").value;
 const password = document.getElementById("password").value;
@@ -52,8 +51,7 @@ const formData = new URLSearchParams();
 formData.append("username", username);
 formData.append("password", password);
 
-const loginUrl = `${window.APP_CONFIG.getApiBase()}/login`;
-const res = await fetch(loginUrl,{
+const res = await fetch(`${window.APP_CONFIG.getApiBase()}/login`,{
 
 method:"POST",
 
@@ -65,21 +63,9 @@ body: formData
 
 });
 
-const contentType = res.headers.get("content-type") || "";
-const rawBody = await res.text();
-
-let data = null;
-if (rawBody && contentType.includes("application/json")) {
-data = JSON.parse(rawBody);
-}
-
-if(!res.ok){
-const message = data?.detail || rawBody || `Login failed with status ${res.status}`;
-throw new Error(message);
-}
-
+const data = await res.json();
 console.log(data);
-if(data && data.access_token){
+if(data.access_token){
 
 
 localStorage.setItem("token", data.access_token);
@@ -88,11 +74,7 @@ window.location.href="index.html";
 
 }else{
 
-throw new Error("Login response did not include an access token.");
-}
-} catch (error) {
-console.error("Login error:", error);
-alert(`Login failed: ${error.message}`);
+alert("Login failed");
 }
 }
 
