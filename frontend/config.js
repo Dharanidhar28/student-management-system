@@ -1,6 +1,11 @@
 const DEFAULT_API_BASE = "https://student-management-system-qdeq.onrender.com";
 
 function getApiBase() {
+	const configuredBase = window.APP_API_BASE_URL;
+	if (configuredBase) {
+		return configuredBase.replace(/\/$/, "");
+	}
+
 	if (window.location.protocol === "file:") {
 		return DEFAULT_API_BASE;
 	}
@@ -19,5 +24,4 @@ function getApiBase() {
 
 window.APP_CONFIG = {
 	getApiBase,
-	DEFAULT_API_BASE,
 };

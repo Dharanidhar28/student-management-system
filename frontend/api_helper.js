@@ -1,8 +1,6 @@
 export async function apiRequest(endpoint, options = {}) {
 	const token = localStorage.getItem("token");
-	const apiBase =
-		window.APP_CONFIG?.DEFAULT_API_BASE || window.APP_CONFIG.getApiBase();
-	const res = await fetch(apiBase + endpoint, {
+	const res = await fetch(window.APP_CONFIG.getApiBase() + endpoint, {
 		...options,
 
 		headers: {
