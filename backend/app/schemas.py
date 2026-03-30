@@ -3,10 +3,10 @@ from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from datetime import datetime
 
 class StudentCreate(BaseModel):
-    name: str = Field(json_schema_extra={"example": "Rahul Sharma"})
-    email: EmailStr = Field(json_schema_extra={"example": "example@example.com"})
-    age: int = Field(ge=0, json_schema_extra={"example": 1})
-    course: str = Field(json_schema_extra={"example": "Computer Science"})
+    name: str = Field(example="Rahul Sharma")
+    email: EmailStr = Field(example="example@example.com")
+    age: int = Field(example=1, ge=0)
+    course: str = Field(example="Computer Science")
    
 
 class Student(BaseModel):
