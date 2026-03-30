@@ -1,21 +1,8 @@
-const DEFAULT_API_BASE = "http://127.0.0.1:8000";
-
-function getApiBase() {
-	const configuredBase = window.localStorage.getItem("apiBaseUrl");
-	if (configuredBase) {
-		return configuredBase.replace(/\/$/, "");
-	}
-
-	if (window.location.protocol === "file:") {
-		return DEFAULT_API_BASE;
-	}
-
-	return `${window.location.protocol}//${window.location.host}`;
-}
+const API_BASE = "http://127.0.0.1:8000";
+const token = localStorage.getItem("token");
 
 export async function apiRequest(endpoint, options = {}) {
-	const token = localStorage.getItem("token");
-	const res = await fetch(getApiBase() + endpoint, {
+	const res = await fetch(API_BASE + endpoint, {
 		...options,
 
 		headers: {

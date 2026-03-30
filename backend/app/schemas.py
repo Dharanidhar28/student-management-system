@@ -1,6 +1,8 @@
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field
 from datetime import datetime
+from pydantic import BaseModel
+
 
 class StudentCreate(BaseModel):
     name: str = Field(example="Rahul Sharma")
@@ -10,8 +12,6 @@ class StudentCreate(BaseModel):
    
 
 class Student(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
     id: int
     name: str
     email: EmailStr
@@ -26,3 +26,6 @@ class studentListResponse(BaseModel):
 class UserLogin(BaseModel):
     email: str
     password: str
+
+class Config:
+    from_attributes = True
