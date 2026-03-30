@@ -52,7 +52,7 @@ const formData = new URLSearchParams();
 formData.append("username", username);
 formData.append("password", password);
 
-const loginUrl = `${window.APP_CONFIG.getApiBase()}/login`;
+const loginUrl = `${window.APP_CONFIG.DEFAULT_API_BASE}/login`;
 const res = await fetch(loginUrl,{
 
 method:"POST",
