@@ -1,10 +1,11 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
+# main.py
+from fastapi import FastAPI
+from backend.app.routers import students
 from backend.app.database import engine
 from backend.app.models import Base
-from backend.app.routers import students
 from backend.app.routers import auth
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -17,7 +18,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import os
+
+port = int(os.environ.get("PORT", 10000))
+
 Base.metadata.create_all(bind=engine)
+
 
 app.include_router(students.router)
 app.include_router(auth.router, tags=["Auth"])
