@@ -140,12 +140,20 @@ or run using Live Server in VS Code.
 
 ## 📌 Future Improvements
 
-* Deploy backend to cloud
-* Deploy frontend
 * Add role-based authentication
 * Export students to CSV
 
 ---
+## Live Demo
+
+Frontend:
+https://student-management-system-t3gh.onrender.com
+
+username:admin@example.com
+password:1234
+
+API Docs:
+https://student-management-system-t3gh.onrender.com/docs
 
 ## 👨‍💻 Author
 
